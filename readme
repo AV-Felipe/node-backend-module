@@ -1,0 +1,29 @@
+Referências básicas:
+• Módulos
+
+o https://medium.com/trainingcenter/entendendo-m%C3%B3dulos-no-javascript-73bce1d64dbf
+o https://www.freecodecamp.org/news/node-module-exports-explained-with-javascript-export-function-examples/
+
+• Exports and imports on Javascript
+
+o https://www.digitalocean.com/community/tutorials/js-modules-es6.amp
+o https://www.geeksforgeeks.org/es6-import-and-export/
+
+Exercícios:
+
+1. Baseado nos seus aprendizados de javascript e servidores, crie um serviço capaz de
+armazenar em um vetor de objetos contendo a lista de funcionários de uma empresa.
+
+a. Cada funcionário possui os seguintes dados: Número de Matrícula, Nome, Ramal,
+Email, Setor e Data de Nascimento.
+
+b. Crie um módulo capaz de retornar os aniversariantes do mês, recebendo um número
+de 1 a 12 e o exporte para usar em uma rota GET.
+
+c. Crie um módulo capaz de retornar a lista de funcionários de um determinado setor e
+o exporte para usar em uma rota GET.
+
+d. Crie um módulo capaz de retornar uma lista de ramais ordenado alfabeticamente e
+o exporte para usar em uma rota GET.
+
+2. Publique o exercício 1 no seu repositório GIT.
