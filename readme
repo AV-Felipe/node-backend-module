@@ -24,6 +24,6 @@ c. Crie um módulo capaz de retornar a lista de funcionários de um determinado 
 o exporte para usar em uma rota GET.
 
 d. Crie um módulo capaz de retornar uma lista de ramais ordenado alfabeticamente e
-o exporte para usar em uma rota GET.
+o exporte para usar em uma rota GET. (Atenção pessoal! A questão dos ramais pede pra listar todos os ramais por ordem alfabética do nome do dono do ramal.)
 
 2. Publique o exercício 1 no seu repositório GIT.

@@ -2,18 +2,21 @@ const express = require('express');
 
 const app = express();
 
+const fs = require('fs');
+
 const port = 3000;
 
-const getBirthdayDB = require('./modules/happy-birthday.js');
-let getBirthday = getBirthdayDB('./mock-data.json');
+// MOCK DB
+const DB_TEXT_FILE = fs.readFileSync('./mock-data.json');
+const DB_OBJECT = JSON.parse(DB_TEXT_FILE);
 
-const getPeopleByDepartmentDB = require('./modules/work-department.js');
-let getPeopleByDepartment = getPeopleByDepartmentDB('./mock-data.json');
+// LOCAL MODULES IMPORTS
+const getBirthday = require('./modules/happy-birthday.js');
 
-const getPeopleBranchLineDB = require('./modules/branch-line.js');
-let getPeopleBranchLine = getPeopleBranchLineDB('./mock-data.json');
+const getPeopleByDepartment = require('./modules/work-department.js');
 
-//app.use(express.json());
+const getPeopleBranchLine = require('./modules/branch-line.js');
+
 
 // GET - item b e c
 app.get('/people', (req, res) => {
@@ -22,12 +25,12 @@ app.get('/people', (req, res) => {
         let month = req.query.month;
 
         res.type('json');
-        res.send(getBirthday(month));
+        res.send(getBirthday(DB_OBJECT, month));
     }else if('department' in req.query){
         let department = req.query.department;
 
         res.type('json');
-        res.send(getPeopleByDepartment(department));
+        res.send(getPeopleByDepartment(DB_OBJECT, department));
     }else{
         res.type('text/plain');
         res.status('404');
@@ -40,7 +43,7 @@ app.get('/people', (req, res) => {
 app.get('/people/branch', (req, res) => {
 
     res.type('json');
-    res.send(getPeopleBranchLine());
+    res.send(getPeopleBranchLine(DB_OBJECT));
 
 })
 
