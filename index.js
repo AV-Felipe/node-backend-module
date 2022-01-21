@@ -7,22 +7,41 @@ const port = 3000;
 const getBirthdayDB = require('./modules/happy-birthday.js');
 let getBirthday = getBirthdayDB('./mock-data.json');
 
+const getPeopleByDepartmentDB = require('./modules/work-department.js');
+let getPeopleByDepartment = getPeopleByDepartmentDB('./mock-data.json');
+
+const getPeopleBranchLineDB = require('./modules/branch-line.js');
+let getPeopleBranchLine = getPeopleBranchLineDB('./mock-data.json');
+
 //app.use(express.json());
 
-// GET - item a
-app.get('/birthday', (req, res) => {
+// GET - item b e c
+app.get('/people', (req, res) => {
     
     if('month' in req.query){
         let month = req.query.month;
 
         res.type('json');
         res.send(getBirthday(month));
+    }else if('department' in req.query){
+        let department = req.query.department;
+
+        res.type('json');
+        res.send(getPeopleByDepartment(department));
     }else{
         res.type('text/plain');
         res.status('404');
         res.send('404 - Not Found');
     }
     
+})
+
+// GET - item d
+app.get('/people/branch', (req, res) => {
+
+    res.type('json');
+    res.send(getPeopleBranchLine());
+
 })
 
 // custom 404 page
